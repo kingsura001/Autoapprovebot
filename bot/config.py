@@ -1,11 +1,18 @@
 import os
 from dotenv import load_dotenv
 
+# Load .env file in local development (not necessary on Render, but safe)
 load_dotenv()
-ADMIN_IDS = list(map(int, os.getenv("ADMIN_IDS", "").split(","))) if os.getenv("ADMIN_IDS") else []
+
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 API_ID = os.getenv("API_ID")
 API_HASH = os.getenv("API_HASH")
-LOG_CHANNEL_ID = int(os.getenv("LOG_CHANNEL_ID"))
-AUTO_APPROVE_ENABLED = os.getenv("AUTO_APPROVE_ENABLED", "true").lower() == "true"
-START_PIC = os.getenv("START_PIC", "https://your-default-image-link.com/start.jpg")
+LOG_CHANNEL_ID = os.getenv("LOG_CHANNEL_ID")
+START_PIC = os.getenv("START_PIC")
+
+# Convert ADMIN_IDS string to list of integers
+admin_ids_str = os.getenv("ADMIN_IDS", "")
+if admin_ids_str:
+    ADMIN_IDS = list(map(int, admin_ids_str.split()))
+else:
+    ADMIN_IDS = []
