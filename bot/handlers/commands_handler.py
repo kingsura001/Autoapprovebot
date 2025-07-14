@@ -3,7 +3,7 @@ from telegram.ext import ContextTypes
 from bot.config import START_PIC
 
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    buttons = [[InlineKeyboardButton("Join Channel", url="https://t.me/yourchannel")]]
+    buttons = [[InlineKeyboardButton("Join Channel", url="https://t.me/+Us68QoIPUN8zNjU1")]]
     reply_markup = InlineKeyboardMarkup(buttons)
 
     await context.bot.send_photo(
